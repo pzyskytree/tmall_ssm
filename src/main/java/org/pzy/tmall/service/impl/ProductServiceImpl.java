@@ -1,6 +1,5 @@
 package org.pzy.tmall.service.impl;
 
-import org.pzy.tmall.controller.ProductImageController;
 import org.pzy.tmall.mapper.ProductMapper;
 import org.pzy.tmall.pojo.Category;
 import org.pzy.tmall.pojo.Product;
@@ -12,6 +11,7 @@ import org.pzy.tmall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -64,6 +64,35 @@ public class ProductServiceImpl implements ProductService {
             ProductImage productImage = productImages.get(0);
             product.setFirstProductImage(productImage);
         }
+    }
+
+    @Override
+    public void fill(List<Category> categories) {
+        for (Category category : categories){
+            fill(category);
+        }
+    }
+
+    @Override
+    public void fill(Category category) {
+        List<Product> products = list(category.getId());
+        category.setProducts(products);
+    }
+
+    @Override
+    public void fillByRow(List<Category> categories) {
+        int productNumEachRow = 8;
+        for (Category category : categories) {
+            List<List<Product>> allProducts = new ArrayList<List<Product>>();
+            List<Product> products = list(category.getId());
+            for (int i = 0; i < products.size(); i += productNumEachRow) {
+                int j = i + productNumEachRow > products.size() ? products.size() : i + productNumEachRow;
+                List<Product> productsRow = products.subList(i, j);
+                allProducts.add(productsRow);
+            }
+            category.setProductsByRow(allProducts);
+        }
+
     }
 
     public void setFirstProductImage(List<Product> products){

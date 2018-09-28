@@ -14,7 +14,7 @@
     <link href="${base_url}/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <script src="${base_url}/js/bootstrap/3.3.6/bootstrap.min.js"></script>
     <link href="${base_url}/css/back/style.css" rel="stylesheet">
- <script>
+<script>
 
  function isEmpty(id, name){
     var value = $("#" + id).val();

@@ -20,6 +20,7 @@ E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\util\ImageUtil.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\mapper\OrderItemMapper.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\OrderItemExample.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\ProductImage.java
+E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\controller\ForeController.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\mapper\ProductImageMapper.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\impl\PropertyValueServiceImpl.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\Review.java
