@@ -30,6 +30,7 @@ E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\OrderExample.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\util\MyMyBatisGenerator.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\CategoryService.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\controller\CategoryController.java
+E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\controller\PageController.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\UserService.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\controller\OrderController.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\ProductImageService.java

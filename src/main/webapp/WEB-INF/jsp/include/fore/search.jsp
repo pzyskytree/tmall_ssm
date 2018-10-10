@@ -9,7 +9,7 @@
         <button type="submit" class="searchButton">Search</button>
         <div class="searchBelow">
             <c:forEach items="${categories}" var="category" varStatus="st">
-                <c:if test="${st.count} >= 3 and ${st.count} <= 6">
+                <c:if test="${st.count >= 5 and st.count <= 8}">
                     <span>
                         <a href="foreCategory/{category.id}">
                             ${category.name}
