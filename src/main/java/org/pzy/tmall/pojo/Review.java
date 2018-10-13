@@ -13,6 +13,8 @@ public class Review {
 
     private Date createDate;
 
+    private User user;
+
     public Integer getId() {
         return id;
     }
@@ -51,5 +53,13 @@ public class Review {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

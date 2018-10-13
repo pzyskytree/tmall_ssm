@@ -11,6 +11,7 @@ org\pzy\tmall\mapper\OrderItemMapper.class
 org\pzy\tmall\mapper\PropertyMapper.class
 org\pzy\tmall\service\impl\OrderServiceImpl.class
 org\pzy\tmall\util\UploadedImageFile.class
+org\pzy\tmall\service\ReviewService.class
 org\pzy\tmall\controller\ForeController.class
 org\pzy\tmall\mapper\ProductMapper.class
 org\pzy\tmall\pojo\PropertyValueExample$Criterion.class
@@ -48,6 +49,7 @@ org\pzy\tmall\controller\PropertyController.class
 org\pzy\tmall\util\Page.class
 org\pzy\tmall\pojo\ProductImageExample$Criteria.class
 org\pzy\tmall\pojo\CategoryExample$Criterion.class
+org\pzy\tmall\service\impl\ReviewServiceIml.class
 org\pzy\tmall\pojo\UserExample.class
 org\pzy\tmall\service\impl\OrderItemServiceImpl.class
 org\pzy\tmall\pojo\UserExample$Criteria.class
