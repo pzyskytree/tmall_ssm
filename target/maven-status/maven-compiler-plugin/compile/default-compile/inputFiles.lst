@@ -1,5 +1,6 @@
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\Product.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\PropertyExample.java
+E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\comparator\ProductReviewComparator.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\mapper\CategoryMapper.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\PropertyValue.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\controller\PropertyController.java
@@ -18,6 +19,7 @@ E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\Order.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\impl\UserServiceImpl.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\ReviewService.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\impl\ReviewServiceIml.java
+E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\comparator\ProductAllComparator.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\util\ImageUtil.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\mapper\OrderItemMapper.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\OrderItemExample.java
@@ -37,6 +39,7 @@ E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\UserService.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\controller\OrderController.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\ProductImageService.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\PropertyValueExample.java
+E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\comparator\ProductDateComparator.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\controller\PropertyValueController.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\mapper\OrderMapper.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\ProductImageExample.java
@@ -51,9 +54,11 @@ E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\ProductExample.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\PropertyService.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\impl\OrderServiceImpl.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\PropertyValueService.java
+E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\comparator\ProductSaleCountComparator.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\impl\ProductImageServiceImpl.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\CategoryExample.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\impl\ProductServiceImpl.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\OrderService.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\mapper\ProductMapper.java
+E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\comparator\ProductPriceComparator.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\util\Page.java

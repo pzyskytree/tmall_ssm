@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
         pageEncoding="utf-8" isELIgnored="false"%>
 <a href="${contextPath}">
-    <img id="logo" src="img/site/logo.gif" class="logo">
+    <img id="logo" src="${base_url}/img/site/logo.gif" class="logo">
 </a>
 <form action="foreSearch" method="POST">
     <div class="searchDiv">

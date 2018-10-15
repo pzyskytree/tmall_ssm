@@ -34,14 +34,14 @@ $(function(){
     });
     //Add to chart
     $(".addCartLink").click(function(){
-       var page = "foreCheckLogin";
+       var page = "${base_url}/foreCheckLogin";
        $.get(
             page,
             function(result){
                 if ("success" == result){
                     var pid = ${product.id};
                     var num = $(".productNumberSetting").val();
-                    var addChartPage = "foreAddCart";
+                    var addCartPage = "${base_url}/foreAddCart";
                     $.get(
                         addCartPage,
                         {"pid": pid, "num": num},
@@ -65,7 +65,7 @@ $(function(){
     });
     //Buy Product
     $(".buyLink").click(function(){
-        var page = "foreCheckLogin";
+        var page = "${base_url}/foreCheckLogin";
         $.get(
             page,
             function(result){
@@ -90,7 +90,7 @@ $(function(){
             return false;
         }
 
-        var page = "foreLoginAjax";
+        var page = "${base_url}/foreLoginAjax";
 
         $.get(
             page,

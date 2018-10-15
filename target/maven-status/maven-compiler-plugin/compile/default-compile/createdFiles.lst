@@ -2,10 +2,13 @@ org\pzy\tmall\pojo\ProductExample.class
 org\pzy\tmall\controller\ProductImageController.class
 org\pzy\tmall\service\impl\ProductImageServiceImpl.class
 org\pzy\tmall\pojo\OrderItemExample$GeneratedCriteria.class
+org\pzy\tmall\comparator\ProductAllComparator.class
 org\pzy\tmall\controller\PageController.class
 org\pzy\tmall\service\PropertyValueService.class
 org\pzy\tmall\mapper\CategoryMapper.class
 org\pzy\tmall\pojo\Order.class
+org\pzy\tmall\comparator\ProductSaleCountComparator.class
+org\pzy\tmall\comparator\ProductPriceComparator.class
 org\pzy\tmall\pojo\User.class
 org\pzy\tmall\mapper\OrderItemMapper.class
 org\pzy\tmall\mapper\PropertyMapper.class
@@ -49,8 +52,10 @@ org\pzy\tmall\controller\PropertyController.class
 org\pzy\tmall\util\Page.class
 org\pzy\tmall\pojo\ProductImageExample$Criteria.class
 org\pzy\tmall\pojo\CategoryExample$Criterion.class
+org\pzy\tmall\comparator\ProductDateComparator.class
 org\pzy\tmall\service\impl\ReviewServiceIml.class
 org\pzy\tmall\pojo\UserExample.class
+org\pzy\tmall\comparator\ProductReviewComparator.class
 org\pzy\tmall\service\impl\OrderItemServiceImpl.class
 org\pzy\tmall\pojo\UserExample$Criteria.class
 org\pzy\tmall\pojo\PropertyValueExample$Criteria.class

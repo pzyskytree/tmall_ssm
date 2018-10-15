@@ -1,16 +1,15 @@
 package org.pzy.tmall.controller;
 
+import java.util.Collections;
 import java.util.List;
 
-import org.pzy.tmall.mapper.UserMapper;
+import org.pzy.tmall.comparator.*;
 import org.pzy.tmall.pojo.*;
 import org.pzy.tmall.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.HtmlUtils;
 
 import javax.servlet.http.HttpSession;
@@ -97,7 +96,51 @@ public class ForeController {
         model.addAttribute("product", product);
         return "fore/product";
     }
+    @RequestMapping(value = "foreCheckLogin", method = RequestMethod.GET)
+    @ResponseBody
+    public String checkLogin(HttpSession session){
+        User user = (User)session.getAttribute("user");
+        return (user == null ? "fail" : "success");
+    }
 
+    @RequestMapping(value = "foreLoginAjax", method = RequestMethod.GET)
+    @ResponseBody
+    public String loginAjax(@RequestParam("name") String name, @RequestParam("password") String password, HttpSession session){
+        name = HtmlUtils.htmlEscape(name);
+        User user = userService.get(name, password);
+        if (null == user){
+            return "fail";
+        }
+        session.setAttribute("user", user);
+        return "success";
+    }
 
+    @RequestMapping(value = "foreCategory/{cid}", method = RequestMethod.GET)
+    public String category(@PathVariable("cid") int cid, String sort, Model model){
+        Category category = categoryService.get(cid);
+        productService.fill(category);
+        productService.setSaleAndReviewNumber(category.getProducts());
+        if (null != sort){
+            switch(sort){
+                case "review":
+                    Collections.sort(category.getProducts(), new ProductReviewComparator());
+                    break;
+                case "date":
+                    Collections.sort(category.getProducts(), new ProductDateComparator());
+                    break;
+                case "saleCount":
+                    Collections.sort(category.getProducts(), new ProductSaleCountComparator());
+                    break;
+                case "price":
+                    Collections.sort(category.getProducts(), new ProductPriceComparator());
+                    break;
+                case "all":
+                    Collections.sort(category.getProducts(), new ProductAllComparator());
+                    break;
+            }
+        }
+        model.addAttribute("category", category);
+        return "fore/category";
+    }
 
 }
