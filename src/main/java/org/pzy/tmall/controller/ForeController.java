@@ -1,5 +1,6 @@
 package org.pzy.tmall.controller;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -152,6 +153,49 @@ public class ForeController {
         model.addAttribute("products", products);
         return "fore/searchResult";
 
+    }
+
+    @RequestMapping(value = "foreBuyone/{pid}", method = RequestMethod.GET)
+    public String buyone(@PathVariable("pid") int pid, @RequestParam("num") int num, HttpSession session){
+        Product product = productService.get(pid);
+        int orderItemId = 0;
+
+        User user = (User)session.getAttribute("user");
+        boolean found = false;
+        List<OrderItem> orderItems = orderItemService.listByUser(user.getId());
+        for (OrderItem orderItem : orderItems){
+            if (orderItem.getProduct().getId().intValue() == pid){
+                orderItem.setNumber(orderItem.getNumber() + num);
+                orderItemService.update(orderItem);
+                found = true;
+                orderItemId = orderItem.getId();
+                break;
+            }
+        }
+        if (!found){
+            OrderItem orderItem = new OrderItem();
+            orderItem.setUid(user.getId());
+            orderItem.setPid(pid);
+            orderItem.setNumber(num);
+            orderItemService.add(orderItem);
+            orderItemId = orderItem.getId();
+        }
+        return "redirect:/foreBuy/" + orderItemId;
+    }
+
+    @RequestMapping(value = "foreBuy/{orderItemId}", method = RequestMethod.GET)
+    public String buy(@PathVariable("orderItemId") String[] orderItemIds, HttpSession session, Model model){
+        List<OrderItem> orderItems = new ArrayList<>();
+        float total = 0.0f;
+        for (String strid : orderItemIds){
+            int id = Integer.parseInt(strid);
+            OrderItem orderItem = orderItemService.get(id);
+            total += orderItem.getProduct().getPromotePrice() * orderItem.getNumber();
+            orderItems.add(orderItem);
+        }
+        session.setAttribute("orderItems", orderItems);
+        model.addAttribute("total", total);
+        return "fore/buy";
     }
 
 }

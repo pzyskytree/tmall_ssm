@@ -71,7 +71,7 @@ $(function(){
             function(result){
                 if ("success" == result){
                     var num = $(".productNumberSetting").val();
-                    location.href = $(".buyLink").attr("href") + "&num=" + num;
+                    location.href = $(".buyLink").attr("href") + "?num=" + num;
                 }else{
                     $("#loginModal").modal("show");
                 }
@@ -206,7 +206,7 @@ $(function(){
             </span>
         </div>
         <div class="buyDiv">
-            <a class="buyLink" href="foreBuyone/pid=${product.id}"><button class="buyButton">立即购买</button></a>
+            <a class="buyLink" href="${base_url}/foreBuyone/${product.id}"><button class="buyButton">立即购买</button></a>
             <a href="#nowhere" class="addCartLink"><button class="addCartButton"><span class="glyphicon glyphicon-shopping-cart"></span>加入购物车</button></a>
         </div>
     </div>

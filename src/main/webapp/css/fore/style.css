@@ -1270,16 +1270,16 @@ tr.orderItemTR td {
 	border-bottom: 1px solid #E5E5E5;
 }
 
-tbody.productListTableTbody td {
+tbody.productListTableBody td {
 	text-align: center;
 	font-size:12px;
 }
 
-tbody.productListTableTbody td.orderItemFirstTD {
+tbody.productListTableBody td.orderItemFirstTD {
 	text-align: left;
 }
 
-tbody.productListTableTbody td.orderItemProductInfo {
+tbody.productListTableBody td.orderItemProductInfo {
 	text-align: left;
 }
 
