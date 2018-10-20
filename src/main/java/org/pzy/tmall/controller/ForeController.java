@@ -3,6 +3,7 @@ package org.pzy.tmall.controller;
 import java.util.Collections;
 import java.util.List;
 
+import com.github.pagehelper.PageHelper;
 import org.pzy.tmall.comparator.*;
 import org.pzy.tmall.pojo.*;
 import org.pzy.tmall.service.*;
@@ -141,6 +142,16 @@ public class ForeController {
         }
         model.addAttribute("category", category);
         return "fore/category";
+    }
+
+    @RequestMapping(value = "foreSearch", method = RequestMethod.POST)
+    public String search(String keyword, Model model){
+        PageHelper.offsetPage(0, 20);
+        List<Product> products = productService.search(keyword);
+        productService.setSaleAndReviewNumber(products);
+        model.addAttribute("products", products);
+        return "fore/searchResult";
+
     }
 
 }
