@@ -1537,7 +1537,7 @@ tr.cartProductItemTR {
 	border: 1px solid #CCCCCC;
 }
 
-span.cartProductItemOringalPrice {
+span.cartProductItemOriginalPrice {
 	text-decoration: line-through;
 	color: #9C9C9C;
 	display: block;

@@ -1,6 +1,7 @@
 package org.pzy.tmall.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -183,8 +184,8 @@ public class ForeController {
         return "redirect:/foreBuy/" + orderItemId;
     }
 
-    @RequestMapping(value = "foreBuy/{orderItemId}", method = RequestMethod.GET)
-    public String buy(@PathVariable("orderItemId") String[] orderItemIds, HttpSession session, Model model){
+    @RequestMapping(value = "foreBuy", method = RequestMethod.GET)
+    public String buy(@RequestParam("oiId") String[] orderItemIds, HttpSession session, Model model){
         List<OrderItem> orderItems = new ArrayList<>();
         float total = 0.0f;
         for (String strid : orderItemIds){
@@ -196,6 +197,39 @@ public class ForeController {
         session.setAttribute("orderItems", orderItems);
         model.addAttribute("total", total);
         return "fore/buy";
+    }
+
+    @RequestMapping(value = "foreAddCart", method = RequestMethod.GET)
+    @ResponseBody
+    public String addCart(@RequestParam("pid") int pid, @RequestParam("num") int num, Model model, HttpSession session){
+        Product product = productService.get(pid);
+        User user = (User)session.getAttribute("user");
+        boolean found = false;
+        List<OrderItem> orderItems = orderItemService.listByUser(user.getId());
+        for (OrderItem orderItem : orderItems){
+            if (orderItem.getPid().intValue() == pid){
+                orderItem.setNumber(orderItem.getNumber() + num);
+                orderItemService.update(orderItem);
+                found = true;
+                break;
+            }
+        }
+        if (!found){
+            OrderItem orderItem = new OrderItem();
+            orderItem.setNumber(num);
+            orderItem.setUid(user.getId());
+            orderItem.setPid(pid);
+            orderItemService.add(orderItem);
+        }
+        return "success";
+    }
+
+    @RequestMapping(value = "foreCart", method = RequestMethod.GET)
+    public String cart(Model model, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        List<OrderItem> orderItems = orderItemService.listByUser(user.getId());
+        model.addAttribute("orderItems", orderItems);
+        return "/fore/cart";
     }
 
 }
