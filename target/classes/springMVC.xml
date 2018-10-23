@@ -25,5 +25,17 @@
 
     <!-- Upload file resolver-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+    <!--Interceptors -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/fore*"/>
+            <bean class="org.pzy.tmall.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/*"/>
+            <bean class="org.pzy.tmall.interceptor.OtherInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     
 </beans>

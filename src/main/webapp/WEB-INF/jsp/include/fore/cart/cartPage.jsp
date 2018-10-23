@@ -231,7 +231,7 @@
                         <td>
                             <img selectIt="false" oiId="${orderItem.id}" class="cartProductItemIfSelected" src="${base_url}/img/site/cartNotSelected.png">
                             <a style="display:none" href="#nowhere"><img src="${base_url}/img/site/cartSelected.png"></a>
-                            <img class="cartProductImg"  src="${base_url}/img/productSingle_middle/${orderItem.product.firstProductImage.id}.jpg">
+                            <img class="cartProductImg"  src="${base_url}/img/productSingleMiddle/${orderItem.product.firstProductImage.id}.jpg">
                         </td>
                         <td>
                             <div class="cartProductLinkOutDiv">
@@ -245,7 +245,7 @@
 
                         </td>
                         <td>
-                            <span class="cartProductItemOriginalPrice">￥${orderItem.product.originalPrice}</span>
+                            <span class="cartProductItemOringalPrice">￥${orderItem.product.originalPrice}</span>
                             <span  class="cartProductItemPromotionPrice">￥${orderItem.product.promotePrice}</span>
 
                         </td>

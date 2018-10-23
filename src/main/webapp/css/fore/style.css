@@ -1274,7 +1274,6 @@ tbody.productListTableBody td {
 	text-align: center;
 	font-size:12px;
 }
-
 tbody.productListTableBody td.orderItemFirstTD {
 	text-align: left;
 }
@@ -1537,7 +1536,7 @@ tr.cartProductItemTR {
 	border: 1px solid #CCCCCC;
 }
 
-span.cartProductItemOriginalPrice {
+span.cartProductItemOringalPrice {
 	text-decoration: line-through;
 	color: #9C9C9C;
 	display: block;

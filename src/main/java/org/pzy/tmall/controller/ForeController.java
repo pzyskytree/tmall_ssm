@@ -40,11 +40,7 @@ public class ForeController {
     ReviewService reviewService;
 
     @RequestMapping(value = "home", method = RequestMethod.GET)
-    public String home(HttpSession session){
-        List<Category> categoryList = categoryService.list();
-        productService.fill(categoryList);
-        productService.fillByRow(categoryList);
-        session.setAttribute("categories", categoryList);
+    public String home(Model model){
         return "fore/home";
     }
 
