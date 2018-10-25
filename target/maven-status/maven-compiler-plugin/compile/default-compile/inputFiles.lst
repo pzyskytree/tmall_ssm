@@ -1,3 +1,4 @@
+E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\interceptor\OtherInterceptor.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\Product.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\PropertyExample.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\comparator\ProductReviewComparator.java
@@ -58,6 +59,7 @@ E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\comparator\ProductSaleCountComp
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\impl\ProductImageServiceImpl.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\pojo\CategoryExample.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\impl\ProductServiceImpl.java
+E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\interceptor\LoginInterceptor.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\service\OrderService.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\mapper\ProductMapper.java
 E:\Project\tmall_ssm\src\main\java\org\pzy\tmall\comparator\ProductPriceComparator.java

@@ -36,7 +36,7 @@ public class OtherInterceptor extends HandlerInterceptorAdapter {
         session.setAttribute("categories", categories);
 
         String contextPath = session.getServletContext().getContextPath();
-        session.setAttribute("contextPath", contextPath);
+        session.setAttribute("contextPath", contextPath + "/home");
 
         User user = (User)session.getAttribute("user");
         int cartTotalItemNumber = 0;

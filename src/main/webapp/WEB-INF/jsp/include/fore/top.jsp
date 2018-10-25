@@ -8,7 +8,7 @@
 
     <span>Welcome to Tmall</span>
     <c:if test="${!empty user}">
-        <a href="${base_url}/loginPage">${user.name}</a>
+        <a href="#" >${user.name}</a>
         <a href="${base_url}/foreLogout">Logout</a>
     </c:if>
     <c:if test="${empty user}">
@@ -18,6 +18,6 @@
     <span class="pull-right">
         <a href="${base_url}/foreBought">My Order List</a>
         <a href="${base_url}/foreCart"> <span style="color:#C40000;margin:0px" class="glyphicon glyphicon-shopping-cart redColor">
-                            </span>Cart <strong>${cartTotalItemNumber}</strong> items</a>
+                            </span>Cart <strong id = "cartNum">${cartTotalItemNumber}</strong> items</a>
     </span>
 </nav>

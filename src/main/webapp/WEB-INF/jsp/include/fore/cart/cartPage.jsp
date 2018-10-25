@@ -27,6 +27,7 @@
                         function(result){
                             if("success"==result){
                                 $("tr.cartProductItemTR[oiId="+deleteOrderItemId+"]").hide();
+                                location.reload(false);
                             }
                             else{
                                 location.href="loginPage";
