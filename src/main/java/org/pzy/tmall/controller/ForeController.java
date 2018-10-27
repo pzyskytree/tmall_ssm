@@ -1,11 +1,10 @@
 package org.pzy.tmall.controller;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import com.github.pagehelper.PageHelper;
+import org.apache.commons.lang.math.RandomUtils;
 import org.pzy.tmall.comparator.*;
 import org.pzy.tmall.pojo.*;
 import org.pzy.tmall.service.*;
@@ -255,5 +254,29 @@ public class ForeController {
         orderItemService.delete(orderItemId);
         return "success";
     }
+
+    @RequestMapping(value="foreCreateOrder", method=RequestMethod.POST)
+    public String createOrder(Model model, Order order, HttpSession session){
+        User user = (User)session.getAttribute("user");
+        String orderCode = new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()) + RandomUtils.nextInt();
+        order.setOrderCode(orderCode);
+        order.setCreateDate(new Date());
+        order.setUid(user.getId());
+        order.setStatus(OrderService.waitPay);
+        List<OrderItem> orderItems = (List<OrderItem>) session.getAttribute("orderItems");
+        float total = orderService.add(order, orderItems);
+        return "redirect:foreAlipay?orderId=" + order.getId() + "&total=" + total;
+    }
+
+    @RequestMapping(value = "forePayed", method = RequestMethod.GET)
+    public String payer(Model model, @RequestParam("orderId") int orderId, @RequestParam("total") float total){
+        Order order = orderService.get(orderId);
+        order.setStatus(OrderService.waitDelivery);
+        order.setPayDate(new Date());
+        orderService.update(order);
+        model.addAttribute("order", order);
+        return "fore/payed";
+    }
+
 
 }

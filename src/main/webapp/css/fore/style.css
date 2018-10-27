@@ -1450,11 +1450,11 @@ a.payedCheckLink:hover {
 	text-decoration: underline;
 }
 
-div.paedCheckLinkDiv {
+div.payedCheckLinkDiv {
 	margin-left: 38px;
 }
 
-div.payedSeperateLine {
+div.payedSeparateLine {
 	border-top: 1px dotted #D4D4D4;
 	margin: 0px 31px;
 }

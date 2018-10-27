@@ -1,6 +1,7 @@
 package org.pzy.tmall.service;
 
 import org.pzy.tmall.pojo.Order;
+import org.pzy.tmall.pojo.OrderItem;
 
 import java.util.List;
 
@@ -22,6 +23,6 @@ public interface OrderService {
 
     List list();
 
-
+    float add(Order order, List<OrderItem> orderItems);
 
 }
