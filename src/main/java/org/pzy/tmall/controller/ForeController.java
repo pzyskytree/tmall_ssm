@@ -274,10 +274,6 @@ public class ForeController {
         order.setStatus(OrderService.waitDelivery);
         order.setPayDate(new Date());
         orderService.update(order);
-//        orderItemService.fill(order);
-//        for (OrderItem orderitem : order.getOrderItems()){
-//            orderItemService.delete(orderitem.getId());
-//        }
         model.addAttribute("order", order);
         return "fore/payed";
     }
