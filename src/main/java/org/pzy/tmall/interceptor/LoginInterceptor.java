@@ -11,6 +11,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.Arrays;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter {
@@ -30,7 +31,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             if (!Arrays.asList(noNeedAuthPage).contains(method)){
                 User user = (User)session.getAttribute("user");
                 if (user == null){
-                    response.sendRedirect("loginPage");
+                    response.sendRedirect(contextPath + "/loginPage");
                     return false;
                 }
             }

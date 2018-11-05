@@ -43,7 +43,8 @@ public class OtherInterceptor extends HandlerInterceptorAdapter {
         if (user != null){
             List<OrderItem> orderItems = orderItemService.listByUser(user.getId());
             for (OrderItem orderItem : orderItems){
-                cartTotalItemNumber += orderItem.getNumber();
+                if (orderItem.getOid() == null)
+                    cartTotalItemNumber += orderItem.getNumber();
             }
         }
         session.setAttribute("cartTotalItemNumber", cartTotalItemNumber);

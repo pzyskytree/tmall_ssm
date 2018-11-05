@@ -2034,17 +2034,17 @@ span.reviewProductInfoRightBelowText {
 	color: #666666;
 }
 
-div.reviewStasticsLeft {
+div.reviewStatisticsLeft {
 	width: 180px;
 	float: left;
 }
 
-div.reviewStasticsLeftTop {
+div.reviewStatisticsLeftTop {
 	background-color: #C40000;
 	height: 6px;
 }
 
-div.reviewStasticsLeftContent {
+div.reviewStatisticsLeftContent {
 	line-height: 29px;
 	border-left: 1px solid #D5D4D4;
 	border-right: 1px solid #D5D4D4;
@@ -2055,26 +2055,26 @@ div.reviewStasticsLeftContent {
 	font-weight: bold;
 }
 
-span.reviewStasticsNumber {
+span.reviewStatisticsNumber {
 	color: #284CA5;
 }
 
-div.reviewStasticsLeftFoot {
+div.reviewStatisticsLeftFoot {
 	height: 6px;
 	border-left: 1px solid #D5D4D4;
 	border-bottom: 1px solid #D5D4D4;
 	background-color: #F6F5F1;
 }
 
-div.reviewStasticsRight {
+div.reviewStatisticsRight {
 	overflow: hidden;
 }
 
-div.reviewStasticsRightEmpty {
+div.reviewStatisticsRightEmpty {
 	height: 35px;
 }
 
-div.reviewStasticsFoot {
+div.reviewStatisticsFoot {
 	background-color: #F6F5F1;
 	border: 1px solid #D5D4D4;
 	border-left-width: 0px;
@@ -2217,7 +2217,7 @@ div.categoryPictureInProductPageDiv {
 	text-align: center;
 }
 
-div.reviewStasticsDiv {
+div.reviewStatisticsDiv {
 	margin-top: 20px;
 }
 
@@ -2240,7 +2240,7 @@ div.reviewDate {
 	width: 100px;
 }
 
-div.reviewDivlistReviewsEach div {
+div.reviewDivListReviewsEach div {
 	display: inline-block;
 }
 
@@ -2257,7 +2257,7 @@ div.reviewUserInfo {
 	color: #333333;
 }
 
-div.reviewDivlistReviewsEach {
+div.reviewDivListReviewsEach {
 	padding: 20px;
 	border-bottom: 1px solid #ECECEC;
 }

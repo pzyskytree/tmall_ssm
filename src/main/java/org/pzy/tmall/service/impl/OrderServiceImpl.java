@@ -53,6 +53,14 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public List list(int uid, String excludedStatus) {
+        OrderExample orderExample = new OrderExample();
+        orderExample.createCriteria().andUidEqualTo(uid).andStatusNotEqualTo(excludedStatus);
+        orderExample.setOrderByClause("id desc");
+        return orderMapper.selectByExample(orderExample);
+    }
+
+    @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackForClassName = "Exception")
     public float add(Order order, List<OrderItem> orderItems) {
         float total = 0.0f;

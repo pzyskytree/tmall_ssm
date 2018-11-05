@@ -124,7 +124,7 @@
                 }
             });
             params = params.substring(1);
-            location.href="foreBuy?"+params;
+            location.href="foreBuy?" + params;
         });
 
     })
@@ -228,6 +228,8 @@
             </thead>
             <tbody>
                 <c:forEach items="${orderItems}" var="orderItem">
+                    <c:if test="${orderItem.oid == null}">
+                    <b >${orderItem.oid}</b>
                     <tr oiId="${orderItem.id}" class="cartProductItemTR">
                         <td>
                             <img selectIt="false" oiId="${orderItem.id}" class="cartProductItemIfSelected" src="${base_url}/img/site/cartNotSelected.png">
@@ -271,9 +273,9 @@
                             <a class="deleteOrderItem" oiId="${orderItem.id}"  href="#nowhere">删除</a>
                         </td>
                     </tr>
+                    </c:if>
                 </c:forEach>
             </tbody>
-
         </table>
     </div>
 

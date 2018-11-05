@@ -56,7 +56,7 @@
                             <button oid=${order.id} class="orderPageCheckOrderItems btn btn-primary btn-xs">查看详情</button>
 
                             <c:if test="${order.status=='waitDelivery'}">
-                                <a href="orders/delivery?id=${order.id}">
+                                <a href="orders/delivery/${order.id}">
                                     <button class="btn btn-primary btn-xs">发货</button>
                                 </a>
                             </c:if>
@@ -74,7 +74,7 @@
                                             </td>
 
                                             <td>
-                                                <a href="foreproduct?pid=${orderItem.product.id}">
+                                                <a href="foreProduct/${orderItem.product.id}">
                                                     <span>${orderItem.product.name}</span>
                                                 </a>
                                             </td>

@@ -176,7 +176,7 @@ public class ForeController {
             orderItemService.add(orderItem);
             orderItemId = orderItem.getId();
         }
-        return "redirect:/foreBuy/" + orderItemId;
+        return "redirect:/foreBuy?oiId=" + orderItemId;
     }
 
     @RequestMapping(value = "foreBuy", method = RequestMethod.GET)
@@ -202,7 +202,7 @@ public class ForeController {
         boolean found = false;
         List<OrderItem> orderItems = orderItemService.listByUser(user.getId());
         for (OrderItem orderItem : orderItems){
-            if (orderItem.getPid().intValue() == pid){
+            if (orderItem.getOid() == null && orderItem.getPid().intValue() == pid){
                 orderItem.setNumber(orderItem.getNumber() + num);
                 orderItemService.update(orderItem);
                 found = true;
@@ -274,9 +274,79 @@ public class ForeController {
         order.setStatus(OrderService.waitDelivery);
         order.setPayDate(new Date());
         orderService.update(order);
+//        orderItemService.fill(order);
+//        for (OrderItem orderitem : order.getOrderItems()){
+//            orderItemService.delete(orderitem.getId());
+//        }
         model.addAttribute("order", order);
         return "fore/payed";
     }
 
+    @RequestMapping(value = "foreBought", method = RequestMethod.GET)
+    public String bought(Model model, HttpSession session){
+        User user = (User)session.getAttribute("user");
+        List<Order> orders = orderService.list(user.getId(), OrderService.delete);
+
+        orderItemService.fill(orders);
+        model.addAttribute("orders", orders);
+        return "fore/bought";
+
+    }
+
+    @RequestMapping(value = "foreDeleteOrder", method = RequestMethod.POST)
+    @ResponseBody
+    public String deleteOrder(HttpSession session,  @RequestParam("oid") int orderId){
+        Order order = orderService.get(orderId);
+        order.setStatus(OrderService.delete);
+        orderService.update(order);
+        return "success";
+    }
+
+    @RequestMapping(value = "foreConfirmPay/{oid}", method = RequestMethod.GET)
+    public String confirmPay(Model model, @PathVariable("oid") int oid){
+        Order order = orderService.get(oid);
+        orderItemService.fill(order);
+        model.addAttribute("order", order);
+        return "fore/confirmPay";
+    }
+
+    @RequestMapping(value = "foreOrderConfirmed/{oid}", method = RequestMethod.GET)
+    public String orderConfirmed(Model model, @PathVariable("oid") int oid){
+        Order order = orderService.get(oid);
+        order.setStatus(OrderService.waitReview);
+        order.setConfirmDate(new Date());
+        orderService.update(order);
+        return "fore/orderConfirmed";
+    }
+
+    @RequestMapping(value = "foreReview/{oid}", method = RequestMethod.GET)
+    public String review(Model model, @PathVariable("oid") int oid){
+        Order order = orderService.get(oid);
+        orderItemService.fill(order);
+        Product product = order.getOrderItems().get(0).getProduct();
+        List<Review> reviews = reviewService.list(product.getId());
+        productService.setSaleAndReviewNumber(product);
+        model.addAttribute("product", product);
+        model.addAttribute("order", order);
+        model.addAttribute("reviews", reviews);
+        return "fore/review";
+    }
+
+    @RequestMapping(value = "foreDoReview", method = RequestMethod.POST)
+    public String doReview(Model model, HttpSession session, @RequestParam("oid") int oid, @RequestParam("pid") int pid,
+                           @RequestParam("content") String content){
+        User user = (User)session.getAttribute("user");
+        Order order = orderService.get(oid);
+        order.setStatus(OrderService.finish);
+        orderService.update(order);
+        content = HtmlUtils.htmlEscape(content);
+        Review review = new Review();
+        review.setContent(content);
+        review.setPid(pid);
+        review.setUid(user.getId());
+        review.setCreateDate(new Date());
+        reviewService.add(review);
+        return "redirect:foreReview/" + oid + "?showOnly=true";
+    }
 
 }

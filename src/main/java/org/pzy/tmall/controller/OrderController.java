@@ -13,6 +13,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -37,8 +38,9 @@ public class OrderController {
         return "admin/listOrder";
     }
 
-    @RequestMapping(value = "orders/delivery", method = RequestMethod.GET)
-    public String delivery(Order order){
+    @RequestMapping(value = "orders/delivery/{oid}", method = RequestMethod.GET)
+    public String delivery(@PathVariable int oid){
+        Order order = orderService.get(oid);
         order.setDeliveryDate(new Date());
         order.setStatus(OrderService.waitConfirm);
         orderService.update(order);

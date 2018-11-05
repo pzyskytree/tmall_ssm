@@ -1,6 +1,7 @@
 package org.pzy.tmall.pojo;
 
 public class OrderItem {
+
     private Integer id;
 
     private Integer pid;

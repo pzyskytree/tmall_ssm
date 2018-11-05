@@ -15,6 +15,8 @@ public interface OrderService {
 
     void add(Order order);
 
+    float add(Order order, List<OrderItem> orderItems);
+
     void delete(int id);
 
     void update(Order order);
@@ -23,6 +25,7 @@ public interface OrderService {
 
     List list();
 
-    float add(Order order, List<OrderItem> orderItems);
+    List list(int uid, String excludedStatus);
+
 
 }

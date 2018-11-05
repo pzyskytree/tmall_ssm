@@ -2,8 +2,7 @@
     pageEncoding="utf-8" isELIgnored="false"%>
 
 <div class="buyPageDiv">
-  <form action="foreCreateOrder" method="post">
-
+  <form id = "checkoutForm" action="${base_url}/foreCreateOrder" method="post">
     <div class="buyFlow">
         <img class="pull-left" src="${base_url}/img/site/simpleLogo.png">
         <img class="pull-right" src="${base_url}/img/site/buyflow.png">

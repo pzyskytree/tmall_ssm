@@ -32,6 +32,10 @@
             <bean class="org.pzy.tmall.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
+            <mvc:mapping path="/fore*/*"/>
+            <bean class="org.pzy.tmall.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
             <mvc:mapping path="/*"/>
             <bean class="org.pzy.tmall.interceptor.OtherInterceptor"/>
         </mvc:interceptor>
