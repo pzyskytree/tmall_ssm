@@ -58,7 +58,7 @@
 
     <c:if test="${param.showOnly!=true}">
         <div class="makeReviewDiv">
-        <form method="post" action="${base_url}/foreDoReview">
+        <form method="post" action="${base_url}/foreDoReview" enctype="multipart/form-data">
             <div class="makeReviewText">其他买家，需要你的建议哦！</div>
             <table class="makeReviewTable">
                 <tr>
